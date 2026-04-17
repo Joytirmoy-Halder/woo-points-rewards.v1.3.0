@@ -1,0 +1,395 @@
+/**
+ * WooPoints Frontend Dashboard Styles
+ * Beautiful user-facing points interface
+ */
+
+/* ═══════════════════════════════
+   Points Account Widget (My Account Dashboard)
+   ═══════════════════════════════ */
+.wpr-account-widget {
+    background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
+    border-radius: 16px;
+    padding: 0;
+    margin: 24px 0;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wpr-widget-header {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1c1c1c 100%);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wpr-widget-icon {
+    font-size: 28px;
+}
+
+.wpr-widget-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.wpr-widget-body {
+    display: flex;
+    gap: 0;
+    padding: 0;
+}
+
+.wpr-widget-stat {
+    flex: 1;
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wpr-widget-stat:last-child {
+    border-right: none;
+}
+
+.wpr-widget-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.wpr-widget-stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.wpr-widget-footer {
+    padding: 16px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+}
+
+.wpr-widget-link {
+    color: #999;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.wpr-widget-link:hover {
+    color: #bbb;
+}
+
+.wpr-widget-info {
+    padding: 16px 24px;
+    background: rgba(160, 160, 160, 0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.wpr-widget-info p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════
+   My Points Page
+   ═══════════════════════════════ */
+.wpr-my-points-page {
+    max-width: 900px;
+}
+
+/* Points Overview Cards */
+.wpr-points-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.wpr-points-card {
+    background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wpr-points-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.wpr-points-card-balance {
+    border-top: 3px solid #888;
+}
+
+.wpr-points-card-earned {
+    border-top: 3px solid #6dce8a;
+}
+
+.wpr-points-card-info {
+    border-top: 3px solid #FFD700;
+}
+
+.wpr-points-card-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.wpr-points-card-value {
+    font-size: 40px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.wpr-points-card-value-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #e8d57a;
+    line-height: 1.4;
+}
+
+.wpr-points-card-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 6px;
+    line-height: 1.4;
+}
+
+.wpr-points-card-glow {
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(160, 160, 160, 0.08), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* ═══════════════════════════════
+   How It Works
+   ═══════════════════════════════ */
+.wpr-how-it-works {
+    background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 32px;
+}
+
+.wpr-how-it-works h3 {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+
+.wpr-steps {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.wpr-step {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+}
+
+.wpr-step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #333, #222);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.wpr-step-text strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.wpr-step-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ═══════════════════════════════
+   Points History
+   ═══════════════════════════════ */
+.wpr-history-section {
+    background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.wpr-history-section h3 {
+    color: #fff;
+    font-size: 18px;
+    margin: 0 0 20px;
+    font-weight: 600;
+}
+
+.wpr-empty-history {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.wpr-empty-history .wpr-empty-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.wpr-empty-history p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.wpr-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.wpr-history-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+}
+
+.wpr-history-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.wpr-history-icon {
+    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.wpr-earned .wpr-history-icon {
+    background: rgba(109, 206, 138, 0.1);
+}
+
+.wpr-spent .wpr-history-icon {
+    background: rgba(224, 96, 96, 0.1);
+}
+
+.wpr-history-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.wpr-history-desc {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wpr-history-meta {
+    display: flex;
+    gap: 12px;
+    margin-top: 2px;
+}
+
+.wpr-history-type {
+    font-size: 11px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+}
+
+.wpr-history-date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.wpr-history-points {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.wpr-earned .wpr-history-points {
+    color: #6dce8a;
+}
+
+.wpr-spent .wpr-history-points {
+    color: #e06060;
+}
+
+/* ═══════════════════════════════
+   WooCommerce My Account Nav Override
+   ═══════════════════════════════ */
+.woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--my-points a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ═══════════════════════════════
+   Responsive
+   ═══════════════════════════════ */
+@media (max-width: 600px) {
+    .wpr-widget-body {
+        flex-direction: column;
+    }
+
+    .wpr-widget-stat {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 16px;
+    }
+
+    .wpr-widget-stat:last-child {
+        border-bottom: none;
+    }
+
+    .wpr-points-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .wpr-steps {
+        flex-direction: column;
+    }
+}

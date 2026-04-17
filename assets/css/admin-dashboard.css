@@ -1,0 +1,982 @@
+/**
+ * WooPoints Admin Dashboard Styles
+ * Premium dark-themed admin interface
+ */
+
+/* ═══════════════════════════════
+   CSS Variables & Reset
+   ═══════════════════════════════ */
+:root {
+    --wpr-bg: #111111;
+    --wpr-card-bg: #1c1c1c;
+    --wpr-card-border: rgba(255, 255, 255, 0.08);
+    --wpr-text: #d4d4d4;
+    --wpr-text-muted: #777;
+    --wpr-accent: #a0a0a0;
+    --wpr-accent-2: #555555;
+    --wpr-success: #6dce8a;
+    --wpr-warning: #e8d57a;
+    --wpr-danger: #e06060;
+    --wpr-radius: 12px;
+    --wpr-radius-sm: 8px;
+    --wpr-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+    --wpr-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════
+   Layout Wrapper
+   ═══════════════════════════════ */
+.wpr-admin-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    color: var(--wpr-text);
+}
+
+/* ═══════════════════════════════
+   Header
+   ═══════════════════════════════ */
+.wpr-admin-header {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--wpr-radius);
+    padding: 32px 40px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.wpr-admin-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+}
+
+.wpr-admin-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 50%;
+}
+
+.wpr-header-content {
+    position: relative;
+    z-index: 1;
+}
+
+.wpr-admin-header h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wpr-logo {
+    font-size: 32px;
+}
+
+.wpr-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    margin: 0;
+}
+
+/* ═══════════════════════════════
+   Stats Grid
+   ═══════════════════════════════ */
+.wpr-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.wpr-stat-card {
+    background: var(--wpr-card-bg);
+    border: 1px solid var(--wpr-card-border);
+    border-radius: var(--wpr-radius);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--wpr-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.wpr-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: var(--wpr-radius) var(--wpr-radius) 0 0;
+}
+
+.wpr-stat-users::before { background: var(--wpr-accent); }
+.wpr-stat-points::before { background: var(--wpr-success); }
+.wpr-stat-rate::before { background: var(--wpr-warning); }
+.wpr-stat-raffle::before { background: var(--wpr-danger); }
+
+.wpr-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--wpr-shadow);
+}
+
+.wpr-stat-icon {
+    font-size: 36px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--wpr-radius-sm);
+}
+
+.wpr-stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.wpr-stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.wpr-stat-label {
+    font-size: 13px;
+    color: var(--wpr-text-muted);
+    margin-top: 2px;
+}
+
+.wpr-raffle-link {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--wpr-danger);
+    text-decoration: none;
+    transition: var(--wpr-transition);
+}
+
+.wpr-raffle-link:hover {
+    color: #ff8787;
+}
+
+/* ═══════════════════════════════
+   Cards
+   ═══════════════════════════════ */
+.wpr-card {
+    background: var(--wpr-card-bg);
+    border: 1px solid var(--wpr-card-border);
+    border-radius: var(--wpr-radius);
+    padding: 0;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.wpr-add-points-card {
+    overflow: visible;
+}
+
+.wpr-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--wpr-card-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.wpr-card-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════
+   Search Form
+   ═══════════════════════════════ */
+.wpr-search-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.wpr-search-input {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--wpr-radius-sm);
+    color: var(--wpr-text);
+    padding: 8px 14px;
+    font-size: 14px;
+    width: 260px;
+    transition: var(--wpr-transition);
+}
+
+.wpr-search-input:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.15);
+}
+
+.wpr-search-input::placeholder {
+    color: var(--wpr-text-muted);
+}
+
+/* ═══════════════════════════════
+   Buttons
+   ═══════════════════════════════ */
+.wpr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    border-radius: var(--wpr-radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: var(--wpr-transition);
+    text-decoration: none;
+    line-height: 1.5;
+}
+
+.wpr-btn-primary {
+    background: linear-gradient(135deg, var(--wpr-accent), var(--wpr-accent-2));
+    color: #fff;
+}
+
+.wpr-btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(160, 160, 160, 0.3);
+    color: #fff;
+}
+
+.wpr-btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--wpr-text);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.wpr-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+}
+
+.wpr-btn-sm {
+    padding: 5px 12px;
+    font-size: 12px;
+}
+
+.wpr-btn-edit {
+    background: rgba(160, 160, 160, 0.15);
+    color: var(--wpr-accent);
+    border: 1px solid rgba(160, 160, 160, 0.3);
+}
+
+.wpr-btn-edit:hover {
+    background: rgba(160, 160, 160, 0.25);
+}
+
+/* ═══════════════════════════════
+   Table
+   ═══════════════════════════════ */
+.wpr-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.wpr-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--wpr-text-muted);
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid var(--wpr-card-border);
+}
+
+.wpr-table tbody td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--wpr-card-border);
+    color: var(--wpr-text);
+}
+
+.wpr-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.wpr-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.wpr-user-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wpr-user-cell img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+
+.wpr-points-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: rgba(160, 160, 160, 0.15);
+    color: #c0c0c0;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.wpr-prize-badge {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 140, 0, 0.2));
+    color: #FFD700;
+}
+
+/* ═══════════════════════════════
+   Empty State
+   ═══════════════════════════════ */
+.wpr-empty-state {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.wpr-empty-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.wpr-empty-state p {
+    color: var(--wpr-text-muted);
+    font-size: 15px;
+}
+
+/* ═══════════════════════════════
+   Pagination
+   ═══════════════════════════════ */
+.wpr-pagination {
+    display: flex;
+    gap: 6px;
+    padding: 16px 24px;
+    justify-content: center;
+}
+
+.wpr-page-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--wpr-radius-sm);
+    font-size: 14px;
+    color: var(--wpr-text);
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.05);
+    transition: var(--wpr-transition);
+}
+
+.wpr-page-link:hover,
+.wpr-page-link.active {
+    background: #333;
+    color: #fff;
+}
+
+/* ═══════════════════════════════
+   Modal
+   ═══════════════════════════════ */
+.wpr-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wpr-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.wpr-modal-content {
+    position: relative;
+    z-index: 1;
+    background: var(--wpr-card-bg);
+    border: 1px solid var(--wpr-card-border);
+    border-radius: var(--wpr-radius);
+    width: 420px;
+    max-width: 90vw;
+    box-shadow: var(--wpr-shadow);
+    animation: wprModalIn 0.3s ease;
+}
+
+@keyframes wprModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.wpr-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--wpr-card-border);
+}
+
+.wpr-modal-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.wpr-modal-close {
+    background: none;
+    border: none;
+    color: var(--wpr-text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.wpr-modal-close:hover {
+    color: #fff;
+}
+
+.wpr-modal-body {
+    padding: 24px;
+}
+
+.wpr-modal-body label {
+    display: block;
+    font-size: 14px;
+    color: var(--wpr-text-muted);
+    margin-bottom: 8px;
+}
+
+.wpr-modal-user-name {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px;
+}
+
+.wpr-modal-footer {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    border-top: 1px solid var(--wpr-card-border);
+}
+
+/* ═══════════════════════════════
+   Inputs
+   ═══════════════════════════════ */
+.wpr-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--wpr-radius-sm);
+    color: var(--wpr-text);
+    padding: 10px 14px;
+    font-size: 14px;
+    transition: var(--wpr-transition);
+    box-sizing: border-box;
+}
+
+.wpr-input:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.15);
+}
+
+.wpr-textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+/* ═══════════════════════════════
+   Search Dropdown (Manual Add)
+   ═══════════════════════════════ */
+.wpr-search-dropdown {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    max-height: 240px;
+    overflow-y: auto;
+    background: #222;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: none;
+    border-radius: 0 0 var(--wpr-radius-sm) var(--wpr-radius-sm);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.wpr-search-result-item {
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 13px;
+    color: var(--wpr-text);
+}
+
+.wpr-search-result-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.wpr-search-result-item:last-child {
+    border-bottom: none;
+}
+
+/* ═══════════════════════════════
+   Prize Config Card
+   ═══════════════════════════════ */
+.wpr-prize-config {
+    border-left: 4px solid #FFD700;
+}
+
+.wpr-prize-form {
+    padding: 24px;
+}
+
+.wpr-form-row {
+    margin-bottom: 16px;
+}
+
+.wpr-form-row label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--wpr-text);
+    margin-bottom: 6px;
+}
+
+/* ═══════════════════════════════
+   Wheel Container
+   ═══════════════════════════════ */
+.wpr-wheel-card {
+    padding: 40px;
+}
+
+.wpr-wheel-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.wpr-wheel-wrapper {
+    position: relative;
+    width: 500px;
+    height: 540px;
+    flex-shrink: 0;
+}
+
+.wpr-wheel-pointer {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    color: #FFD700;
+    z-index: 10;
+    filter: drop-shadow(0 2px 6px rgba(255, 215, 0, 0.5));
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    line-height: 1;
+}
+
+#wpr-raffle-wheel {
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 8px rgba(255, 255, 255, 0.08),
+        0 0 0 12px rgba(160, 160, 160, 0.2),
+        0 0 40px rgba(0, 0, 0, 0.3);
+}
+
+.wpr-wheel-controls {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+/* ═══════════════════════════════
+   Spin Button
+   ═══════════════════════════════ */
+.wpr-spin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, #444, #2a2a2a, #444);
+    background-size: 200% 200%;
+    color: #fff;
+    font-weight: 700;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 0 4px rgba(255, 255, 255, 0.08);
+    transition: var(--wpr-transition);
+    animation: wprPulse 2s infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.wpr-spin-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.wpr-spin-button:hover::before {
+    left: 100%;
+}
+
+.wpr-spin-button:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.6),
+        0 0 0 6px rgba(255, 255, 255, 0.12);
+}
+
+.wpr-spin-button:active {
+    transform: scale(0.97);
+}
+
+.wpr-spin-button:disabled {
+    animation: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wpr-spin-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.wpr-spin-text {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes wprPulse {
+    0%, 100% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.5),
+            0 0 0 4px rgba(255, 255, 255, 0.08);
+    }
+    50% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.7),
+            0 0 0 8px rgba(255, 255, 255, 0.06);
+    }
+}
+
+/* ═══════════════════════════════
+   Winner Display
+   ═══════════════════════════════ */
+.wpr-winner-display {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--wpr-radius);
+    padding: 24px;
+    text-align: center;
+    width: 100%;
+    animation: wprWinnerIn 0.5s ease;
+}
+
+@keyframes wprWinnerIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.wpr-winner-badge {
+    font-size: 48px;
+    animation: wprBounce 0.6s ease infinite alternate;
+}
+
+@keyframes wprBounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+.wpr-winner-title {
+    color: #ccc;
+    font-size: 24px;
+    margin: 8px 0;
+}
+
+.wpr-winner-name {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.wpr-winner-email {
+    color: var(--wpr-text-muted);
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+.wpr-winner-points {
+    color: var(--wpr-accent);
+    font-size: 14px;
+    margin: 2px 0;
+}
+
+.wpr-winner-status {
+    margin-top: 12px;
+    padding: 8px 16px;
+    background: rgba(109, 206, 138, 0.15);
+    color: var(--wpr-success);
+    border-radius: var(--wpr-radius-sm);
+    font-size: 13px;
+    display: inline-block;
+}
+
+/* ═══════════════════════════════
+   Wheel Legend
+   ═══════════════════════════════ */
+.wpr-wheel-legend {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 4px 0;
+}
+
+.wpr-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.wpr-legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.wpr-legend-name {
+    color: var(--wpr-text);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wpr-legend-points {
+    color: var(--wpr-text-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* ═══════════════════════════════
+   Settings Page
+   ═══════════════════════════════ */
+.wpr-settings-grid {
+    padding: 24px;
+}
+
+.wpr-form-group {
+    margin-bottom: 20px;
+}
+
+.wpr-form-group > label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--wpr-text);
+    margin-bottom: 6px;
+}
+
+.wpr-help-text {
+    font-size: 12px;
+    color: var(--wpr-text-muted);
+    margin-top: 4px;
+}
+
+.wpr-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--wpr-text);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.wpr-checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--wpr-accent);
+}
+
+/* ═══════════════════════════════
+   Toast Notification
+   ═══════════════════════════════ */
+.wpr-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--wpr-card-bg);
+    border: 1px solid var(--wpr-card-border);
+    border-left: 4px solid var(--wpr-success);
+    color: var(--wpr-text);
+    padding: 16px 24px;
+    border-radius: var(--wpr-radius-sm);
+    box-shadow: var(--wpr-shadow);
+    z-index: 100200;
+    animation: wprToastIn 0.4s ease, wprToastOut 0.4s ease 3s forwards;
+    max-width: 400px;
+    font-size: 14px;
+}
+
+.wpr-toast.wpr-toast-error {
+    border-left-color: var(--wpr-danger);
+}
+
+@keyframes wprToastIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wprToastOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ═══════════════════════════════
+   Responsive
+   ═══════════════════════════════ */
+@media (max-width: 768px) {
+    .wpr-admin-header {
+        padding: 24px;
+    }
+
+    .wpr-admin-header h1 {
+        font-size: 22px;
+    }
+
+    .wpr-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wpr-search-input {
+        width: 100%;
+    }
+
+    .wpr-wheel-wrapper {
+        width: 320px;
+        height: 360px;
+    }
+
+    #wpr-raffle-wheel {
+        width: 320px !important;
+        height: 320px !important;
+    }
+
+    .wpr-spin-button {
+        width: 140px;
+        height: 140px;
+    }
+
+    .wpr-table {
+        font-size: 12px;
+    }
+
+    .wpr-table thead th,
+    .wpr-table tbody td {
+        padding: 8px 10px;
+    }
+}
+
+/* ═══════════════════════════════
+   Scrollbar
+   ═══════════════════════════════ */
+.wpr-wheel-legend::-webkit-scrollbar {
+    width: 4px;
+}
+
+.wpr-wheel-legend::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wpr-wheel-legend::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.wpr-wheel-legend::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
